@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Cipher Cite</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+            	<li><a href="http://localhost:3000/">Home</a></li>
+			</ul>
+			
+		</nav>
+		<br>
+		<h1>Cipher Cite</h1>
+		
+		<input id = "input" type = "text" name = "plaintext"/>
+		<button id = "submit" type = "button" onclick = "genCipherText()">Encode</button>
+		<div id = "result"></div>
+		<br>
+
+		<script type="text/javascript">
+			function genCipherText(){
+				var xhr = new XMLHttpRequest();
+				var pt = document.getElementById("input").value;
+				xhr.open("GET", "http://localhost:3000/cipherText?plaintext=" + pt, true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.onreadystatechange = function() {
+        			if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            			document.getElementById("result").innerHTML = this.responseText;
+       				}
+				};
+				
+				xhr.send();
+			}
+		</script>
+		
+	</body>
+</html>
