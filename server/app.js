@@ -21,6 +21,9 @@ function encodeText(s) {
     var cipherText = '';
     for(i = 0; i < s.length; i ++){
         var letterIndex = alpha.indexOf(s[i]);
+        if(s[i] == " "){
+            cipherText += " ";
+        }
         cipherText += newAlpha[letterIndex];
     }
     return cipherText;
@@ -39,7 +42,7 @@ app.get('/cipherText', (request, response) => {
     for (var i = 0; i < plaintext.length; i++){
         ciphertext += encodeText(plaintext[i].toLowerCase())
     }
-    var result = "<p>"+ciphertext+"</p>"
+    var result = ciphertext;
     console.log(result);
     response.status(200).send(result);
 })

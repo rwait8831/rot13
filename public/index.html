@@ -14,11 +14,11 @@
 			
 		</nav>
 		<br>
-		<h1>Cipher Cite</h1>
+		<h1>Rot13 Cipher</h1>
 		
-		<input id = "input" type = "text" name = "plaintext"/>
+		<div><input id = "input" type = "text" name = "plaintext"/></div>
 		<button id = "submit" type = "button" onclick = "genCipherText()">Encode</button>
-		<div id = "result"></div>
+		<input id = "output" type = "text" name = "ciphertext" value = ""/>
 		<br>
 
 		<script type="text/javascript">
@@ -29,7 +29,8 @@
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xhr.onreadystatechange = function() {
         			if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            			document.getElementById("result").innerHTML = this.responseText;
+						var cipherText = this.responseText;
+            			document.getElementById("output").value = cipherText;
        				}
 				};
 				

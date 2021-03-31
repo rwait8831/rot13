@@ -42,6 +42,8 @@ h1 {
 }
 
 input[type = text]{
+	text-align:center;
+	font-size: 125%;
 	margin:0;
 	position:absolute;
 	top:30%;
@@ -55,8 +57,10 @@ input[type = text]{
 	background-color: aqua;
 }
 
-output{
+#output{
+	text-align:center;
 	margin:0;
+	font-size: 150%;
 	position:absolute;
 	top:60%;
 	left: 50%;
