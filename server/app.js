@@ -20,10 +20,10 @@ function encodeText(s) {
     var newAlpha = 'nopwrstuvwxyzabcdefghijklm';
     var cipherText = '';
     for(i = 0; i < s.length; i ++){
-        var letterIndex = alpha.indexOf(s[i]);
-        if(s[i] == " "){
-            cipherText += " ";
+        if(s[i] === " "){
+           return s[i];
         }
+        var letterIndex = alpha.indexOf(s[i]);
         cipherText += newAlpha[letterIndex];
     }
     return cipherText;
